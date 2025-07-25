@@ -20,7 +20,7 @@ function App() {
           const data = new TextDecoder().decode(event.message.records[0].data);
           const [id, name] = data.split(";");
 
-          fetch("http://localhost:5000/api/mark", {
+          fetch("https://nfc-reader.onrender.com/api/mark", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
