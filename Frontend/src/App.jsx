@@ -35,20 +35,19 @@ function App() {
 
         fetch("https://nfc-reader.onrender.com/api/mark", {
           method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
+          headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ id, name }),
         })
           .then((res) => res.json())
           .then((data) => {
-            setStatus(data.message);
+            setStatus(data.message); // ✅ Ab yaha pe "already marked" bhi show hoga
             setLastScanned({ id, name, time: new Date().toLocaleTimeString() });
             setIsScanning(false);
             setShowFlash(true);
             setShowActions(true);
             setTimeout(() => setShowFlash(false), 3000);
           })
+        
           .catch(() => {
             setStatus("❌ Failed to mark attendance");
             setIsScanning(false);
