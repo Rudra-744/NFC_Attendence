@@ -18,7 +18,6 @@ app.post('/api/mark', async (req, res) => {
       sheet.addRow(['Date', 'Time', 'ID', 'Name']);
     }
 
-    // ✅ Check if already marked today
     let alreadyMarked = false;
     sheet.eachRow({ includeEmpty: false }, (row, rowNumber) => {
       if (rowNumber === 1) return; // Skip header
@@ -34,7 +33,6 @@ app.post('/api/mark', async (req, res) => {
       return res.json({ message: `⚠️ Attendance already marked for ${name}` });
     }
 
-    // ✅ If not marked, then add new entry
     sheet.addRow([date, time, id, name]);
     await workbook.xlsx.writeFile(FILE_PATH);
 

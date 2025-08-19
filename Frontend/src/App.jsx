@@ -85,7 +85,6 @@ function App() {
           📲 NFC Attendance System
         </h1>
 
-        {/* Main scan button with micro-interactions */}
         <button
           onClick={startScan}
           disabled={isScanning}
@@ -99,7 +98,6 @@ function App() {
             ${buttonPressed === 'scan' ? 'scale-95' : ''}
           `}
         >
-          {/* Ripple effect */}
           <span className="relative z-10">
             {isScanning ? (
               <span className="flex items-center justify-center space-x-2">
@@ -111,7 +109,6 @@ function App() {
             )}
           </span>
           
-          {/* Scanning pulse rings */}
           {isScanning && (
             <>
               <div className="absolute inset-0 bg-yellow-400 rounded-lg animate-ping opacity-25"></div>
@@ -120,7 +117,6 @@ function App() {
           )}
         </button>
 
-        {/* Flash message with entrance animation */}
         {showFlash && lastScanned && (
           <div className="bg-blue-100 border border-blue-300 text-blue-800 px-4 py-3 rounded-lg mb-4 transform transition-all duration-500 animate-bounce-in">
             <div className="flex items-center justify-center space-x-2">
@@ -135,12 +131,10 @@ function App() {
           </div>
         )}
 
-        {/* Status with smooth transitions */}
         <p className="text-gray-700 text-lg mb-2 transition-all duration-300 min-h-[28px]">
           {status}
         </p>
 
-        {/* Last scanned with slide-up animation */}
         {lastScanned && (
           <div className="mt-4 p-4 bg-green-50 border border-green-300 rounded-xl transform transition-all duration-500 hover:shadow-md hover:bg-green-100 animate-slide-up">
             <p className="text-green-700 font-semibold flex items-center justify-center space-x-2 mb-2">
@@ -161,7 +155,6 @@ function App() {
           </div>
         )}
 
-        {/* Action buttons with staggered entrance */}
         {showActions && (
           <div className="mt-6 flex flex-col gap-3">
             <button
@@ -198,7 +191,6 @@ function App() {
           </div>
         )}
 
-        {/* Attendance list with hover effects */}
         {attendanceList.length > 0 && (
           <div className="mt-6 text-left w-full overflow-auto max-h-64 border-t pt-4 animate-fade-in">
             <h2 className="text-lg font-semibold mb-2 text-center transition-colors duration-300 hover:text-gray-800">
